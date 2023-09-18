@@ -12,10 +12,10 @@ model clients {
   name       String     @db.VarChar
   lastname   String     @db.VarChar
   email      String     @db.VarChar
-  company_id String?    @db.Uuid
+  company_id String?    
   created_at DateTime?  @default(dbgenerated("'2023-09-19 18:08:29.69745'::timestamp without time zone")) @db.Timestamp(6)
   updated_at DateTime?  @default(dbgenerated("'2023-09-19 18:08:29.69745'::timestamp without time zone")) @db.Timestamp(6)
-  companies  companies? @relation(fields: [company_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  companies  companies? @relation(fields: [company_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
 
 model companies {

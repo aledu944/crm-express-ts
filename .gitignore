@@ -1,5 +1,7 @@
 # FILES
+yarn-error.log
 .env
+
 # DIRECTORY
 node_modules/
 postgres/
