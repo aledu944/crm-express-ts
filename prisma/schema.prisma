@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model clients {
+  id         String     @id @default(uuid())
+  name       String     @db.VarChar
+  lastname   String     @db.VarChar
+  email      String     @db.VarChar
+  company_id String?    @db.Uuid
+  created_at DateTime?  @default(dbgenerated("'2023-09-19 18:08:29.69745'::timestamp without time zone")) @db.Timestamp(6)
+  updated_at DateTime?  @default(dbgenerated("'2023-09-19 18:08:29.69745'::timestamp without time zone")) @db.Timestamp(6)
+  companies  companies? @relation(fields: [company_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model companies {
+  id           String   @id @default(uuid())
+  name         String    @db.VarChar
+  email        String    @db.VarChar
+  direction    String    @db.VarChar
+  number_phone String    @db.VarChar
+  created_at   DateTime? @default(dbgenerated("'2023-09-19 18:08:29.69745'::timestamp without time zone")) @db.Timestamp(6)
+  updated_at   DateTime? @default(dbgenerated("'2023-09-19 18:08:29.69745'::timestamp without time zone")) @db.Timestamp(6)
+  clients      clients[]
+}
+
+model users {
+  id         String    @id @default(uuid())
+  name       String    @db.VarChar
+  lastname   String    @db.VarChar
+  email      String    @db.VarChar
+  avatar     String?   @default("") @db.VarChar
+  password   String    @db.VarChar(200)
+  token      String?   @db.VarChar(200)
+  created_at DateTime? @default(dbgenerated("'2023-09-19 18:08:29.69745'::timestamp without time zone")) @db.Timestamp(6)
+  updated_at DateTime? @default(dbgenerated("'2023-09-19 18:08:29.69745'::timestamp without time zone")) @db.Timestamp(6)
+}
