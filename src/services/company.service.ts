@@ -10,7 +10,7 @@ const create = async ( createCompanyDto: CreateCompanyDto ) => {
         const companyExist = await prisma.companies.findFirst({ where: { email } })
     
         if( companyExist ){
-            throw 'Client already exists'
+            throw 'Company already exists'
         }
 
         const company = await prisma.companies.create({
