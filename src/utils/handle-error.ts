@@ -8,6 +8,13 @@ export const notFound = (message: string) => {
     }
 }
 
+export const badRequest = (message: string) => {
+    return {
+        statusCode: 400,
+        message,
+    }
+}
+
 export const internalServerError = (message: string = 'Internal Server Error') => {
     return {
         statusCode: 500,
