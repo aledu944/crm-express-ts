@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from 'dotenv'
-import AppRoutes from './src/routes/routes'
+import AppRoutes from './src/infraestructure/routes/routes'
 
 dotenv.config();
 

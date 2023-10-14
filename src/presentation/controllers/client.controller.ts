@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 
-import CreateClientDto from "../dtos/clients/create-client.dto";
-import UpdateClientDto from "../dtos/clients/update-client.dto";
+import CreateClientDto from "../../infraestructure/dtos/clients/create-client.dto";
+import UpdateClientDto from "../../infraestructure/dtos/clients/update-client.dto";
 
-import clientService from "../services/client.service";
+import clientService from "../../infraestructure/services/client.service";
 
 const getAllClients = async ( req: Request, res: Response ) => {
     clientService.findAll()

@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 
-import companyService from "../services/company.service";
-import CreateCompanyDto from "../dtos/company/create-company.dto";
-import UpdateCompanyDto from "../dtos/company/update-company.dto";
+import companyService from "../../infraestructure/services/company.service";
+import CreateCompanyDto from "../../infraestructure/dtos/company/create-company.dto";
+import UpdateCompanyDto from "../../infraestructure/dtos/company/update-company.dto";
 
 
 const getAllCompanies = async (req: Request, res: Response) => {
